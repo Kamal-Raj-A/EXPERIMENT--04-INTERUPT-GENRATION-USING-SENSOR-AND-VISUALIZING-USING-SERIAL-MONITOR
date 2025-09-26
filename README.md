@@ -183,13 +183,12 @@ PUTCHAR_PROTOTYPE {
 
 
 ```
-## Output screen shots of serial port utility   :
- <img width="932" height="479" alt="image" src="https://github.com/user-attachments/assets/916bed42-8e74-4dc2-9153-351fb359814c" />
+## Output :
+### Without obstacle :
+![WhatsApp Image 2025-09-24 at 14 21 19_2609cf4d](https://github.com/user-attachments/assets/d1df1d96-2472-47fa-8aa0-34930487415b)
 
- 
- ## Circuit board :
- 
- <img width="453" height="630" alt="image" src="https://github.com/user-attachments/assets/2bf318a6-f152-41ba-a9fe-0fd3e7e4ddf5" />
+### With obstacle :
+ ![Uploading WhatsApp Image 2025-09-24 at 14.21.18_fb7f2a20.jpg…]()
 
  
 ## Result :
