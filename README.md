@@ -180,16 +180,14 @@ PUTCHAR_PROTOTYPE {
 	return ch;
 }
 
-
-
 ```
 ## Output :
 ### Without obstacle :
 ![WhatsApp Image 2025-09-24 at 14 21 19_2609cf4d](https://github.com/user-attachments/assets/d1df1d96-2472-47fa-8aa0-34930487415b)
 
 ### With obstacle :
- ![Uploading WhatsApp Image 2025-09-24 at 14.21.18_fb7f2a20.jpg…]()
+ ![WhatsApp Image 2025-09-24 at 14 21 18_45432773](https://github.com/user-attachments/assets/41371fd3-08de-4876-a567-abdc995b2e48)
 
- 
+
 ## Result :
 Interfacing a  IR SENSOR and interrupt is generated using external interrupt mode , visualized on serial port 
