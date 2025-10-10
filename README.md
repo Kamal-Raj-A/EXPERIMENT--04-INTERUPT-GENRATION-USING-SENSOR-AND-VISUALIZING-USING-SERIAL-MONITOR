@@ -117,70 +117,41 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
   
 
 ## STM 32 CUBE PROGRAM :
+
 ```
-
-
 #include "main.h"
 #include "stdio.h"
-#if defined (__ICCARM__) || defined (_ARMCC_VERSION)
-#define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *f);
-#elif defined(__GNUC__)
+
+#if defined (_ICCARM) || defined (_ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#elif defined(_GNUC_)
+
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #endif
 
-
-
-int main(void)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  
-  HAL_Init();
-
-  
-  SystemClock_Config();
-
-  
-  MX_GPIO_Init();
-  MX_USART2_UART_Init();
-  
-  while (1)
-  {
-
-  }
-  while(1){
-      if(interrupt_triggered){
-          printf("INTERRUPT GENERATED\n");
-          HAL_Delay(100);  // Delay here is safe
-          interrupt_triggered = 0;
-      }
-  }
-  /* USER CODE END 3 */
+		if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_4)==0)
+		{
+			printf("obstacle found\n");
+			HAL_Delay(500);
+		}
+		else
+		{
+			printf("obstacle not found\n");
+			HAL_Delay(500);
+		}
 }
 
+PUTCHAR_PROTOTYPE
+{
 
-//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-//	if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4)==0){
-//		printf("INTERRUPT GENERATED\n");
-//		HAL_Delay(100);
-//	}else{
-//		printf("INTERRUPT NOT GENERATED\n");
-//		HAL_Delay(100);
-//	}
-//}
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-    if(GPIO_Pin == GPIO_PIN_4){
-        if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4) == 0){
-            interrupt_triggered = 1;
-        }
-    }
+  return ch;
 }
-
-PUTCHAR_PROTOTYPE {
-	HAL_UART_Transmit(&huart2,(uint8_t*)&ch,1,0xFFFF);
-	return ch;
-}
-
 ```
+
 ## Output :
 ### Without obstacle :
 <img width="848" height="650" alt="image" src="https://github.com/user-attachments/assets/41c14d68-c645-4110-ae6b-a294aeda9908" />
